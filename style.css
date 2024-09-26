@@ -1,0 +1,289 @@
+/* ===================== ESTILOS GERAIS ===================== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0a0a0a; /* Preto muito escuro */
+    color: #fff; /* Texto branco */
+}
+
+/* ===================== CONTÊINER ===================== */
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.1); /* Fundo transparente */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    display: none; /* Escondido inicialmente */
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+/* ===================== HEADER ===================== */
+.header {
+    height: 200px;
+    border-radius: 10px 10px 0 0;
+    background: linear-gradient(135deg, #800080, #4B0082);
+    background-size: 200% 200%;
+    animation: gradientMove 5s infinite linear; /* Animação do gradiente */
+}
+
+/* ===================== ANIMAÇÃO DE COR ===================== */
+@keyframes changeColor {
+    0% { background-color: #800080; }
+    25% { background-color: #9B59B6; }
+    50% { background-color: #8E44AD; }
+    75% { background-color: #4B0082; }
+    100% { background-color: #800080; }
+}
+
+/* ===================== ANIMAÇÃO DO GRADIENTE ===================== */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+/* ===================== ANIMAÇÃO DE COR DO MODAL ===================== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9); /* Fundo semi-transparente mais escuro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: rgba(128, 0, 128, 0.9); /* Fundo semi-transparente roxo forte */
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff; /* Texto branco */
+    border: 2px solid #ff00ff; /* Borda em magenta */
+    animation: modalColorChange 5s infinite; /* Animação de mudança de cor */
+}
+
+/* ===================== ANIMAÇÃO DE COR DO MODAL ===================== */
+@keyframes modalColorChange {
+    0% { background: rgba(128, 0, 128, 0.9); } /* Roxo forte */
+    25% { background: rgba(160, 32, 240, 0.9); } /* Roxo médio */
+    50% { background: rgba(147, 0, 211, 0.9); } /* Roxo mais escuro */
+    75% { background: rgba(75, 0, 130, 0.9); } /* Roxo bem escuro */
+    100% { background: rgba(128, 0, 128, 0.9); } /* Roxo forte */
+}
+
+/* ===================== INFORMAÇÕES SUPERIORES ===================== */
+.top-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #fff; /* Texto branco */
+    margin: 5px;
+    flex: 1; /* Permite que os itens se expandam */
+}
+
+.info-item i {
+    margin-right: 5px;
+    font-size: 18px;
+    color: #ff00ff; /* Ícones em magenta */
+}
+
+/* ===================== SEÇÕES DE PERFIL ===================== */
+.bio, .tweets, .house-section {
+    margin-top: 20px;
+}
+
+/* ===================== NOTIFICAÇÕES ===================== */
+.notification {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(128, 0, 128, 0.9); /* Fundo semi-transparente roxo forte */
+    padding: 10px;
+    border: 2px solid #ff00ff; /* Borda em magenta */
+    border-radius: 5px;
+    display: none; /* Mantenha oculto até que necessário */
+}
+
+.insta-widget {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(128, 0, 128, 0.9); /* Fundo semi-transparente roxo forte */
+    padding: 15px;
+    border: 2px solid #E1306C;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+}
+
+/* ===================== BOTÕES DE CÓPIA ===================== */
+.copy-button {
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: #800080; /* Fundo roxo forte */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.copy-group {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+/* ===================== SEÇÕES DE CASA ===================== */
+.house-section {
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borda suave */
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+}
+
+.house-title {
+    display: flex;
+    align-items: center;
+}
+
+.house-title i {
+    margin-right: 5px;
+}
+
+/* ===================== BOTÕES DE FECHAR ===================== */
+.close-button {
+    margin-left: auto;
+    cursor: pointer;
+    color: red;
+    border: none;
+    background: none;
+    font-size: 16px;
+}
+
+/* ===================== RODAPÉ ===================== */
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+    position: relative;
+    bottom: 1;
+    width: 100%;
+    color: #fff; /* Texto branco */
+}
+
+/* ===================== WIDGETS DE NOTIFICAÇÃO ===================== */
+.notification-widget {
+    position: fixed;
+    top: 80px; /* Ajuste para que fique acima da notificação do Instagram */
+    right: 20px;
+    background-color: rgba(128, 0, 128, 0.9); /* Fundo semi-transparente roxo forte */
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    z-index: 1002; /* Certifique-se de que este número seja maior que o da notificação do Instagram */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 14px;
+    color: #fff; /* Texto branco */
+}
+
+.notification-widget span {
+    font-weight: bold; /* Destacar a saudação */
+}
+
+.whatsapp-icon {
+    width: 20px;
+    height: 20px;
+    margin-top: 5px;
+}
+/* ===================== CÍRCULO DE PERFIL ===================== */
+.profile-circle {
+    width: 70px; /* Largura do círculo */
+    height: 70px; /* Altura do círculo */
+    border-radius: 50%; /* Faz o círculo */
+    border: 3px solid purple; /* Espessura e cor da borda reduzidas */
+    overflow: hidden; /* Esconde partes que saem do círculo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px; /* Espaçamento entre o círculo e o texto */
+    background-color: transparent; /* Fundo transparente */
+    animation: rgbSnake 1.5s linear infinite; /* Animação rgb snake */
+    box-shadow: 0 0 10px rgba(128, 0, 128, 0.8), 0 0 20px rgba(128, 0, 128, 0.5); /* Efeito de luz */
+}
+
+@keyframes rgbSnake {
+    0% {
+        border-color: #800080; /* Roxo profundo */
+        box-shadow: 0 0 10px rgba(128, 0, 128, 0.8), 0 0 20px rgba(128, 0, 128, 0.5);
+    }
+    10% {
+        border-color: #9b59b6; /* Roxo claro */
+    }
+    20% {
+        border-color: #8e44ad; /* Roxo mais claro */
+    }
+    30% {
+        border-color: #4b0082; /* Roxo escuro */
+    }
+    40% {
+        border-color: #663399; /* Roxo padrão */
+    }
+    50% {
+        border-color: #800080; /* Roxo profundo */
+        box-shadow: 0 0 10px rgba(128, 0, 128, 0.8), 0 0 20px rgba(128, 0, 128, 0.5);
+    }
+    60% {
+        border-color: #9b59b6; /* Roxo claro */
+    }
+    70% {
+        border-color: #8e44ad; /* Roxo mais claro */
+    }
+    80% {
+        border-color: #4b0082; /* Roxo escuro */
+    }
+    90% {
+        border-color: #663399; /* Roxo padrão */
+    }
+    100% {
+        border-color: #800080; /* Roxo profundo */
+        box-shadow: 0 0 10px rgba(128, 0, 128, 0.8), 0 0 20px rgba(128, 0, 128, 0.5);
+    }
+}
+
+.profile-image {
+    width: 100%; /* Preenche o círculo */
+    height: auto; /* Mantém a proporção */
+}
+
+.audio {
+    display: none;
+}
