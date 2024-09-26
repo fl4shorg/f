@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil do Twitter</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<audio id="background-audio" autoplay loop>
+    <source src="wait.mp3" type="audio/mpeg">
+    Incompativel com o Navegador.
+</audio>
+
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <h2>Aviso</h2>
+        <p><i class="fas fa-exclamation-triangle" style="color: yellow;"></i> Vazar a apostila resultará no banimento do seu IP: <span id="ipWarning"></span>.</p>
+        <button onclick="agree()">Concordo em não vazar</button>
+    </div>
+</div>
+
+<div class="container" id="container">
+    <div class="header"></div>
+    <div class="top-info">
+        <div class="info-item" id="ipDisplay">
+            <i class="fas fa-laptop-code"></i> Seu IP: <span id="ipValue"></span>
+        </div>
+        <div class="info-item" id="visitCounter">
+            <i class="fas fa-users"></i> Contador de visitas: <span id="visitValue"></span>
+        </div>
+        <div class="info-item" id="deviceDisplay">
+            <i class="fas fa-mobile-alt"></i> Dispositivo: <span id="deviceValue"></span>
+        </div>
+        <div class="info-item" id="batteryLevel">
+            <i class="fas fa-battery-full"></i> Nível de Bateria: <span id="batteryValue"></span>%
+        </div>
+        <div class="info-item" id="locationDisplay">
+            <i class="fas fa-map-marker-alt"></i> Estado: <span id="locationValue"></span>
+        </div>
+    </div>
+    <div class="profile-info">
+<div class="profile-circle">
+    <img src="perfil.jpg" alt="Perfil" class="profile-image" />
+</div>
+        <div>
+            <h2> Apostila <i class="fas fa-check-circle" style="color: #1da1f2;"></i></h2>
+            <p>@neextstickers</p>
+        </div>
+    </div>  
+    <div class="tweets">
+        <div class="tweet">
+            <p><i class="fa-microchip"></i> Atualização.</p>
+        </div>
+        <div class="tweet">
+            <p><i class="fas fa-tools"></i> Atualização.</p>
+        </div>
+    </div>
+
+    <!-- Seções de Casa -->
+    <div class="house-section">
+        <div class="house-title">
+            <i class="fa-solid fa-bars"></i> <!-- Ícone de castelo -->
+            <h2> Capitólio <i class="fas fa-check-circle" style="color: #1da1f2;"></i></h2>
+        </div>
+        <div class="copy-group">
+            <span>⁰⁰ ✶ Dirigente ꗃ </span>
+            <button class="copy-button" onclick="copyText('ⁱᵐ')">Copiar</button>
+        </div>
+        <div class="copy-group">
+            <span> ⁰¹🥇Assistente ꗃ</span>
+            <button class="copy-button" onclick="copyText('ᵃˢˢ')">Copiar</button>
+        </div>
+        <div class="copy-group">
+            <span> Vice dirigente</span>
+            <button class="copy-button" onclick="copyText('2024')">Copiar</button>
+        </div>
+    </div>
+
+    <!-- Seção Casa Branca -->
+    <div class="house-section">
+        <div class="house-title">
+            <i class="fas fa-home"></i>
+            <h2>Casa Branca <i class="fas fa-check-circle" style="color: #1da1f2;"></i></h2>
+        </div>
+        <div class="copy-group">
+            <span>⁰⁰ ✶ 𝗜𝗺𝗽𝗲𝗿𝗮𝗱𝗼𝗿 ꗃ </span>
+            <button class="copy-button" onclick="copyText('ⁱᵐ')">Copiar</button>
+        </div>
+        <div class="copy-group">
+            <span> ⁰¹🥇Assistente ꗃ</span>
+            <button class="copy-button" onclick="copyText('ᵃˢˢ')">Copiar</button>
+        </div>
+        <div class="copy-group">
+            <span> Vice Imperador</span>
+            <button class="copy-button" onclick="copyText('2024')">Copiar</button>
+        </div>
+    </div>
+    
+    <!-- Seção Mossad -->
+    <div class="house-section">
+        <div class="house-title">
+            <i class="fas fa-home"></i>
+            <h2>Mossad <i class="fas fa-check-circle" style="color: #1da1f2;"></i></h2>
+        </div>
+        <div class="copy-group">
+            <span> 01 Imperador</span>
+            <button class="copy-button" onclick="copyText('2024')">Copiar</button>
+        </div>
+        <div class="copy-group">
+            <span> Embaixador de Imperador</span>
+            <button class="copy-button" onclick="copyText('2024')">Copiar</button>
+        </div>
+        <div class="copy-group">
+            <span> Vice Imperador</span>
+            <button class="copy-button" onclick="copyText('2024')">Copiar</button>
+        </div>
+    </div>
+    
+    <!-- Seção Citadel -->
+    <div class="house-section">
+        <div class="house-title">
+            <i class="fas fa-building"></i>
+            <h2>Citadel <i class="fas fa-check-circle" style="color: #1da1f2;"></i></h2>
+        </div>
+        <div class="copy-group">
+            <span> Vice Imperador</span>
+            <button class="copy-button" onclick="copyText('2024')">Copiar</button>
+        </div>
+    </div>
+    
+    <div class="notification-widget" id="notificationWidget">
+        <span id="greeting"></span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" class="whatsapp-icon" />
+        <p>💗A Neext está em atualização. Fique atento ao nosso Canal no WhatsApp.</p>
+        <button class="close-button" onclick="closeNotification()">Fechar</button>
+    </div>
+</div>
+
+    <div class="notification" id="notification"></div>
+    <div class="insta-widget">
+        <i class="fab fa-instagram"></i>
+        <span>Siga no Instagram: @neet.tk</span>
+        <button class="close-button" onclick="closeWidget()">Fechar</button>
+    </div>
+
+<footer>
+   © Neext.Ltda <i class="fas fa-flag" style="color: purple;"></i>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
