@@ -151,7 +151,8 @@ function updateGreeting() {
     }
 
     document.getElementById('greeting').innerText = `${greeting} Bem-vindo!`;
-}function getLocation() {
+}
+function getLocation() {
     // Usando a API ip-api para obter a localização do usuário
     fetch('http://ip-api.com/json/')
       .then(response => response.json())
