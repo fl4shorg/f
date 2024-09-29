@@ -152,11 +152,24 @@ function updateGreeting() {
 
     document.getElementById('greeting').innerText = `${greeting} Bem-vindo!`;
 }
+function getLocation() {
+    // Utilizando a API ipinfo.io sem token para obter a localização do usuário
+    fetch('https://ipinfo.io/json')  // Requisição sem token
+      .then(response => response.json())
+      .then(data => {
+        const location = data.country;  // Pega o país
+        document.getElementById("location").innerHTML = "Você está acessando de: " + location;
+      })
+      .catch(error => {
+        console.error('Erro ao obter a localização:', error);
+      });
+  }
 
 // Inicializações
 window.onload = function() {
     updateGreeting(); // Atualiza a saudação
     getDeviceInfo(); 
     getGreeting();
+    getLocation();
     // Obtém informações do dispositivo
 };
