@@ -151,15 +151,14 @@ function updateGreeting() {
     }
 
     document.getElementById('greeting').innerText = `${greeting} Bem-vindo!`;
-}
-function getLocation() {
+}function getLocation() {
     // Usando a API ip-api para obter a localização do usuário
     fetch('http://ip-api.com/json/')
       .then(response => response.json())
       .then(data => {
         if (data.status === "success") {
-            const region = data.regionName;   // Pega o estado ou região
-            document.getElementById("location").innerHTML = `Você está acessando de: ${region}`;
+            const country = data.country;     // Pega o país
+            document.getElementById("location").innerHTML = `Você está acessando de: ${country}`;
         } else {
             document.getElementById("location").innerHTML = "Não foi possível obter a localização.";
         }
@@ -168,6 +167,7 @@ function getLocation() {
         console.error('Erro ao obter a localização:', error);
       });
 }
+
 
 // Inicializações
 window.onload = function() {
