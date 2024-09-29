@@ -152,20 +152,45 @@ function updateGreeting() {
 
     document.getElementById('greeting').innerText = `${greeting} Bem-vindo!`;
 }
+// Mapeamento de estados e suas siglas
+const estados = {
+    "Acre": "AC",
+    "Alagoas": "AL",
+    "Amapá": "AP",
+    "Amazonas": "AM",
+    "Bahia": "BA",
+    "Ceará": "CE",
+    "Distrito Federal": "DF",
+    "Espírito Santo": "ES",
+    "Goiás": "GO",
+    "Maranhão": "MA",
+    "Mato Grosso": "MT",
+    "Mato Grosso do Sul": "MS",
+    "Minas Gerais": "MG",
+    "Pará": "PA",
+    "Paraíba": "PB",
+    "Paraná": "PR",
+    "Pernambuco": "PE",
+    "Piauí": "PI",
+    "Rio de Janeiro": "RJ",
+    "Rio Grande do Norte": "RN",
+    "Rio Grande do Sul": "RS",
+    "Rondônia": "RO",
+    "Roraima": "RR",
+    "São Paulo": "SP",
+    "Sergipe": "SE",
+    "Tocantins": "TO",
+};
 
 function getLocation() {
-    // Usando a API ip-api com HTTPS
+    // Usando a API ip-api para obter a localização do usuário
     fetch('https://ip-api.com/json/')
-      .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
+      .then(response => response.json())
       .then(data => {
         if (data.status === "success") {
-            const country = data.country; // Pega o país
-            document.getElementById("location").innerHTML = `Você está acessando de: ${country}`;
+            const region = data.regionName; // Pega o estado ou região
+            const estadoSigla = estados[region] || "Estado desconhecido"; // Obtém a sigla
+            document.getElementById("location").innerHTML = `Você está acessando de: ${region} (${estadoSigla})`;
         } else {
             document.getElementById("location").innerHTML = "Não foi possível obter a localização.";
         }
@@ -175,6 +200,9 @@ function getLocation() {
         console.error('Erro ao obter a localização:', error);
       });
 }
+
+
+
 
 
 
