@@ -107,20 +107,30 @@ function agree() {
     const hour = now.getHours();
     const username = "usuário";  // Nome do usuário, você pode dinamizar se necessário.
     let greeting = "";
+    let startEmoji = "";  // Emoji no início
+    let endEmoji = "";    // Emoji no final
 
-    // Determina a saudação com base no horário
+    // Definindo emojis para o início e fim da saudação
     if (hour >= 6 && hour < 12) {
+      startEmoji = "👨‍💻";  // Emoji de usuário ou trabalhador
       greeting = "Bom dia, " + username + "!";
+      endEmoji = "🌞";  // Emoji de sol para "Bom dia"
     } else if (hour >= 12 && hour < 18) {
+      startEmoji = "👋";  // Emoji de cumprimento
       greeting = "Boa tarde, " + username + "!";
+      endEmoji = "☀️";  // Emoji de sol para "Boa tarde"
     } else if (hour >= 18 && hour < 23) {
+      startEmoji = "🌙";  // Emoji de lua, pode simbolizar noite
       greeting = "Boa noite, " + username + "!";
+      endEmoji = "🌜";  // Emoji de lua crescente para "Boa noite"
     } else {
+      startEmoji = "🌜";  // Emoji de lua
       greeting = "Boa madrugada, " + username + "!";
+      endEmoji = "🌙";  // Outro emoji de lua para madrugada
     }
 
-    // Insere a saudação com o ícone do bonequinho no elemento com id "greeting"
-    document.getElementById("greeting").innerHTML = "🤖 " + greeting;
+    // Exibe a saudação com os emojis de início e fim
+    document.getElementById("greeting").innerHTML = startEmoji + " " + greeting + " " + endEmoji;
   }
 
 
@@ -146,5 +156,7 @@ function updateGreeting() {
 // Inicializações
 window.onload = function() {
     updateGreeting(); // Atualiza a saudação
-    getDeviceInfo();  // Obtém informações do dispositivo
+    getDeviceInfo(); 
+    getGreeting();
+    // Obtém informações do dispositivo
 };
