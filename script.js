@@ -152,22 +152,30 @@ function updateGreeting() {
 
     document.getElementById('greeting').innerText = `${greeting} Bem-vindo!`;
 }
+
 function getLocation() {
-    // Usando a API ip-api para obter a localização do usuário
-    fetch('http://ip-api.com/json/')
-      .then(response => response.json())
+    // Usando a API ip-api com HTTPS
+    fetch('https://ip-api.com/json/')
+      .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
       .then(data => {
         if (data.status === "success") {
-            const country = data.country;     // Pega o país
+            const country = data.country; // Pega o país
             document.getElementById("location").innerHTML = `Você está acessando de: ${country}`;
         } else {
             document.getElementById("location").innerHTML = "Não foi possível obter a localização.";
         }
       })
       .catch(error => {
+        document.getElementById("location").innerHTML = "Erro ao obter a localização.";
         console.error('Erro ao obter a localização:', error);
       });
 }
+
 
 
 // Inicializações
