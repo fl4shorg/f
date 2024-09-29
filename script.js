@@ -89,6 +89,20 @@ function closeNotification() {
     document.getElementById('notificationWidget').style.display = 'none';
 }
 
+function agree() {
+        // Obter o elemento de áudio
+        const audio = document.getElementById('background-audio');
+
+        // Tocar a música (caso não esteja tocando)
+        if (audio.paused) {
+            audio.play();
+        }
+
+        // Fechar o modal (opcional)
+        document.getElementById('modal').style.display = 'none';
+    }
+
+
 // Função para atualizar a saudação de acordo com o horário
 function updateGreeting() {
     const now = new Date();
