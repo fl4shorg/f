@@ -153,17 +153,21 @@ function updateGreeting() {
     document.getElementById('greeting').innerText = `${greeting} Bem-vindo!`;
 }
 function getLocation() {
-    // Utilizando a API ipinfo.io sem token para obter a localização do usuário
-    fetch('https://ipinfo.io/json')  // Requisição sem token
+    // Usando a API ip-api para obter a localização do usuário
+    fetch('http://ip-api.com/json/')
       .then(response => response.json())
       .then(data => {
-        const location = data.country;  // Pega o país
-        document.getElementById("location").innerHTML = "Você está acessando de: " + location;
+        if (data.status === "success") {
+            const region = data.regionName;   // Pega o estado ou região
+            document.getElementById("location").innerHTML = `Você está acessando de: ${region}`;
+        } else {
+            document.getElementById("location").innerHTML = "Não foi possível obter a localização.";
+        }
       })
       .catch(error => {
         console.error('Erro ao obter a localização:', error);
       });
-  }
+}
 
 // Inicializações
 window.onload = function() {
