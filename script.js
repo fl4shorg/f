@@ -101,6 +101,27 @@ function agree() {
         // Fechar o modal (opcional)
         document.getElementById('modal').style.display = 'none';
     }
+    
+    function getGreeting() {
+    const now = new Date();
+    const hour = now.getHours();
+    const username = "usuário";  // Nome do usuário, você pode dinamizar se necessário.
+    let greeting = "";
+
+    // Determina a saudação com base no horário
+    if (hour >= 6 && hour < 12) {
+      greeting = "Bom dia, " + username + "!";
+    } else if (hour >= 12 && hour < 18) {
+      greeting = "Boa tarde, " + username + "!";
+    } else if (hour >= 18 && hour < 23) {
+      greeting = "Boa noite, " + username + "!";
+    } else {
+      greeting = "Boa madrugada, " + username + "!";
+    }
+
+    // Insere a saudação com o ícone do bonequinho no elemento com id "greeting"
+    document.getElementById("greeting").innerHTML = "🤖 " + greeting;
+  }
 
 
 // Função para atualizar a saudação de acordo com o horário
