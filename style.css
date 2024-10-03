@@ -1,11 +1,24 @@
-/* ===================== ESTILOS GERAIS ===================== */
-body {
+/* ===================== ESTILOS GERAIS ===================== */body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #0a0a0a; /* Preto muito escuro */
+    position: relative; /* Adicione esta linha */
+    background-image: url('f1457b6a9cd1679b082ed97e25462cbf.jpg'); /* Caminho para a imagem de fundo */
+    background-size: cover; /* Para cobrir toda a área */
+    background-position: center; /* Para centralizar a imagem */
     color: #fff; /* Texto branco */
+}
+
+body::before {
+    content: ""; /* Adiciona um conteúdo vazio */
+    position: absolute; /* Posição absoluta */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Fundo escuro com 50% de opacidade */
+    z-index: 0; /* Certifique-se de que fique atrás do conteúdo */
 }
 
 /* ===================== CONTÊINER ===================== */
